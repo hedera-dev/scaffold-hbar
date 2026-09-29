@@ -12,6 +12,8 @@ npm create scaffold-hbar@latest
 
 `npx create-scaffold-hbar@latest` is equivalent. The CLI fetches starter templates from this repo's `templates/*` branches.
 
+To pass flags through `npm create`, put `--` before them: `npm create scaffold-hbar@latest my-app -- --template org/repo`. Without it, npm treats `--template` as its own setting and the CLI scaffolds its default template; npm 11 at least warns `Unknown cli config "--template"`. `npx create-scaffold-hbar@latest my-app --template org/repo` needs no `--`.
+
 ## Work from this repository
 
 `main` is the forkable baseline. Clone-and-run uses Yarn workspaces. Apps created with the CLI can use Yarn (default) or npm; see the [docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index).
