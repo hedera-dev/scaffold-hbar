@@ -83,20 +83,12 @@ You need a deployer account with HBAR on the target network. Without funds, depl
    ```
    You will be prompted to enter the password to decrypt your deployer key.
 
-4. **Verify on Sourcify** (Hedera is now supported on the main [Sourcify instance](https://sourcify.dev)):
+4. **Verify on Sourcify** (shows as verified on HashScan). Submits the solc standard-json from `artifacts/build-info` directly to the Sourcify API v2:
    ```bash
-   # Verify a specific contract by address
-   yarn hardhat:verify:testnet 0xSubscriptionNFTAddress
-   yarn hardhat:verify:mainnet 0xSubscriptionNFTAddress
-
-   # With constructor arguments (if any)
-   yarn hardhat:verify:testnet 0xSubscriptionNFTAddress "arg1" "arg2"
-
-   # From packages/hardhat directory
-   npx hardhat verify --network hederaTestnet 0xSubscriptionNFTAddress
+   yarn hardhat:verify -- SubscriptionNFT testnet                          # address from deployments/hederaTestnet/
+   yarn hardhat:verify -- SubscriptionNFT testnet 0xSubscriptionNFTAddress # explicit address
    ```
-   
-   Verified contracts are visible on [HashScan](https://hashscan.io) and the broader Sourcify ecosystem.
+   Use `mainnet` instead of `testnet` for chain 295. Verified contracts are visible on [HashScan](https://hashscan.io) and the broader Sourcify ecosystem.
 
 ## Layout
 

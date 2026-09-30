@@ -216,7 +216,7 @@ yarn hardhat:test:forking       # optional forked tests against testnet
 yarn next:dev                   # hot reload
 yarn next:build
 yarn hardhat:compile
-yarn hardhat:verify:testnet
+yarn hardhat:verify -- SubscriptionNFT testnet
 yarn lint
 yarn format
 ```

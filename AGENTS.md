@@ -22,7 +22,7 @@ yarn hardhat:compile
 yarn hardhat:test              # MockHTS unit tests (local)
 yarn hardhat:test:forking      # optional testnet fork tests
 yarn hardhat:deploy --network hederaTestnet
-yarn hardhat:verify:testnet
+yarn hardhat:verify -- SubscriptionNFT testnet [0xAddress]
 
 yarn next:dev                  # http://localhost:3000
 yarn next:build
