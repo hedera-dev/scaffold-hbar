@@ -23,26 +23,12 @@ interface BuildInfo {
   output: { contracts: Record<string, Record<string, unknown>> };
 }
 
-const fail = (msg: string): never => {
-  console.error(`❌ ${msg}`);
-  process.exit(1);
-};
-
-async function main() {
-  const [contractName, networkArg, addressArg] = process.argv.slice(2);
-  const network = NETWORKS[networkArg ?? ""];
-  if (!contractName || !network) {
-    fail(`Usage: yarn verify:contract -- <ContractName> <testnet|mainnet> [0xAddress]`);
-  }
-
-  const address =
-    addressArg ??
-    (() => {
-      const deploymentFile = path.join("deployments", network.deploymentsDir, `${contractName}.json`);
-      if (!fs.existsSync(deploymentFile)) fail(`No address passed and ${deploymentFile} not found`);
-      return (JSON.parse(fs.readFileSync(deploymentFile, "utf8")) as { address: string }).address;
-    })();
-
+/** Submits the solc standard-json from artifacts/build-info to Sourcify v2 and polls the job. */
+export async function verifyOnSourcify(
+  contractName: string,
+  address: string,
+  network: { chainId: number; hashscan: string },
+): Promise<boolean> {
   // Every build-info that contains the contract is a candidate (latest first).
   const buildInfoDir = path.join("artifacts", "build-info");
   const candidates = fs
@@ -58,10 +44,9 @@ async function main() {
     .filter((c): c is { info: BuildInfo; sourcePath: string } => c !== null);
 
   if (candidates.length === 0) {
-    fail(`No build-info contains ${contractName}. Run \`yarn compile\` first.`);
+    console.error(`No build-info contains ${contractName}. Run \`yarn compile\` first.`);
+    return false;
   }
-
-  console.log(`Verifying ${contractName} at ${address} on chain ${network.chainId} via Sourcify v2...`);
 
   for (const { info, sourcePath } of candidates) {
     const { language, sources, settings } = info.input as {
@@ -97,7 +82,7 @@ async function main() {
       if (job.contract?.match) {
         console.log(`✅ ${job.contract.match} — verified on Sourcify`);
         console.log(`   HashScan: ${network.hashscan}/contract/${address}`);
-        return;
+        return true;
       }
       if (job.error?.customCode === "already_verified") {
         const existing = (await (await fetch(`${SOURCIFY_API}/contract/${network.chainId}/${address}`)).json()) as {
@@ -106,14 +91,44 @@ async function main() {
         };
         console.log(`✅ already verified on Sourcify (${existing.match ?? existing.runtimeMatch ?? "match"})`);
         console.log(`   HashScan: ${network.hashscan}/contract/${address}`);
-        return;
+        return true;
       }
       console.log(`  no match for ${sourcePath}, trying next candidate if any`);
       break;
     }
   }
 
-  fail(`Sourcify could not match ${contractName} at ${address}. Wrong address or stale artifacts?`);
+  console.error(`Sourcify could not match ${contractName} at ${address}. Wrong address or stale artifacts?`);
+  return false;
 }
 
-main().catch(e => fail(e instanceof Error ? e.message : String(e)));
+async function main() {
+  const [contractName, networkArg, addressArg] = process.argv.slice(2);
+  const network = NETWORKS[networkArg ?? ""];
+  if (!contractName || !network) {
+    console.error(`Usage: yarn verify:contract -- <ContractName> <testnet|mainnet> [0xAddress]`);
+    process.exit(1);
+  }
+
+  const address =
+    addressArg ??
+    (() => {
+      const deploymentFile = path.join("deployments", network.deploymentsDir, `${contractName}.json`);
+      if (!fs.existsSync(deploymentFile)) {
+        console.error(`No address passed and ${deploymentFile} not found`);
+        process.exit(1);
+      }
+      return (JSON.parse(fs.readFileSync(deploymentFile, "utf8")) as { address: string }).address;
+    })();
+
+  console.log(`Verifying ${contractName} at ${address} on chain ${network.chainId} via Sourcify v2...`);
+  const ok = await verifyOnSourcify(contractName, address, network);
+  if (!ok) process.exit(1);
+}
+
+if (require.main === module) {
+  main().catch(e => {
+    console.error(e instanceof Error ? e.message : String(e));
+    process.exit(1);
+  });
+}
