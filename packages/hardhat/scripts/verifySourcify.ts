@@ -4,12 +4,6 @@ import * as path from "path";
 /**
  * Verifies a deployed contract on Sourcify (API v2) — the Hedera-supported verifier.
  *
- * Why this exists: @nomicfoundation/hardhat-verify 2.x (the newest line compatible with
- * Hardhat 2) talks to the Sourcify API v1, which Sourcify has removed server-side.
- * v2 support only exists in hardhat-verify 3.x, which requires Hardhat 3.
- * Until the template migrates to Hardhat 3, this script submits the solc standard-json
- * from artifacts/build-info directly to https://sourcify.dev/server/v2.
- *
  * Usage:
  *   yarn verify:contract -- HederaToken testnet [0xAddress]
  *   yarn verify:contract -- HederaToken mainnet [0xAddress]
