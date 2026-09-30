@@ -1,24 +1,15 @@
 import hre from "hardhat";
 import * as fs from "fs";
 import * as path from "path";
+import { verifyOnSourcify } from "../verifySourcify";
 
 async function verifySourcify(name: string, address: string): Promise<void> {
   console.log(`\n=== Verifying ${name} on Sourcify ===`);
   console.log("  Address:", address);
-  try {
-    await hre.run("verify:sourcify", { address });
-    console.log(`  ${name} verified ✓`);
-    const chainId = hre.network.config.chainId;
-    if (chainId === 295 || chainId === 296) {
-      const network = chainId === 295 ? "mainnet" : "testnet";
-      console.log(`  HashScan: https://hashscan.io/${network}/contract/${address}`);
-    }
-  } catch (err) {
-    if (err instanceof Error && err.message.toLowerCase().includes("already verified")) {
-      console.log(`  ${name} already verified ✓`);
-    } else {
-      throw err;
-    }
+  const chainId = hre.network.config.chainId ?? 296;
+  const hashscan = chainId === 295 ? "https://hashscan.io/mainnet" : "https://hashscan.io/testnet";
+  if (!(await verifyOnSourcify(name, address, { chainId, hashscan }))) {
+    throw new Error(`${name} verification failed`);
   }
 }
 

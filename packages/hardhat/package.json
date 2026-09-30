@@ -15,9 +15,6 @@
     "lint": "eslint",
     "lint-staged": "eslint",
     "test": "hardhat test",
-    "verify": "hardhat verify",
-    "verify:testnet": "hardhat verify --network hederaTestnet",
-    "verify:mainnet": "hardhat verify --network hederaMainnet",
     "hedera:compile": "hardhat compile",
     "hedera:test": "hardhat test test/hedera/DcaOrchestrator.ts test/hedera/AxelarMessageSender.ts",
     "hedera:deploy": "hardhat run scripts/hedera/deploy.ts --network hederaTestnet",
@@ -38,7 +35,8 @@
     "sepolia:fund:usdc": "hardhat run scripts/sepolia/fundUsdc.ts --network ethereumSepolia",
     "sepolia:balance:check": "hardhat run scripts/sepolia/balanceCheck.ts --network ethereumSepolia",
     "sepolia:withdraw:executor": "hardhat run scripts/sepolia/withdrawExecutor.ts --network ethereumSepolia",
-    "sepolia:withdraw:receiver": "hardhat run scripts/sepolia/withdrawReceiver.ts --network ethereumSepolia"
+    "sepolia:withdraw:receiver": "hardhat run scripts/sepolia/withdrawReceiver.ts --network ethereumSepolia",
+    "verify:contract": "ts-node scripts/verifySourcify.ts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "~2.0.7",
