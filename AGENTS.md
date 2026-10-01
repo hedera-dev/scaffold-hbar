@@ -39,7 +39,7 @@ yarn foundry:compile
 # Live networks
 yarn hardhat:deploy --network hederaTestnet   # or hederaMainnet
 yarn foundry:deploy --network hedera_testnet  # or hedera_mainnet
-yarn hardhat:verify:testnet
+yarn hardhat:verify -- HederaToken testnet [0xAddress]
 yarn foundry:verify:testnet
 
 # Deployer account
