@@ -29,7 +29,7 @@
     "hardhat:lint": "yarn workspace @sh/hardhat lint",
     "hardhat:lint-staged": "yarn workspace @sh/hardhat lint-staged",
     "hardhat:test": "yarn workspace @sh/hardhat test",
-    "hardhat:verify": "yarn workspace @sh/hardhat verify",
+    "hardhat:verify": "yarn workspace @sh/hardhat verify:contract",
     "hardhat:verify:testnet": "yarn workspace @sh/hardhat verify:testnet",
     "hardhat:verify:mainnet": "yarn workspace @sh/hardhat verify:mainnet",
     "lint": "yarn next:lint && yarn hardhat:lint",

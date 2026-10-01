@@ -4,7 +4,6 @@ dotenv.config();
 import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-ethers";
 import "@nomicfoundation/hardhat-chai-matchers";
-import "@nomicfoundation/hardhat-verify";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
@@ -73,17 +72,8 @@ const config: HardhatUserConfig = {
       chainId: 295,
     },
   },
-  // Hedera is now supported on the main Sourcify instance (sourcify.dev).
-  // No custom verifier URL required — standard tooling works out of the box.
-  // See: https://hedera.com/blog/smart-contract-verification-sourcify-dev-now-supported
-  sourcify: {
-    enabled: true,
-  },
-  // Disable Etherscan verification (Hedera uses Sourcify only)
-  etherscan: {
-    enabled: false,
-    apiKey: {},
-  },
+  // Contract verification: `yarn verify:testnet` (scripts/verifyDeployed.ts) or
+  // `yarn verify:contract` (scripts/verifySourcify.ts) — both talk directly to the Sourcify API v2.
   typechain: {
     outDir: "typechain-types",
     target: "ethers-v6",
@@ -94,19 +84,6 @@ const config: HardhatUserConfig = {
 task("deploy").setAction(async (args, hre, runSuper) => {
   await runSuper(args);
   await generateTsAbis(hre);
-});
-
-// Extend the verify task to show HashScan link after Sourcify verification.
-task("verify").setAction(async (args, hre, runSuper) => {
-  await runSuper(args);
-
-  const address = args.address;
-  const chainId = hre.network.config.chainId;
-
-  if (address && (chainId === 295 || chainId === 296)) {
-    const network = chainId === 295 ? "mainnet" : "testnet";
-    console.log(`\nHashScan: https://hashscan.io/${network}/contract/${address}`);
-  }
 });
 
 export default config;
