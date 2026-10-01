@@ -54,12 +54,10 @@ const config: HardhatUserConfig = {
       chainId: 11155111,
     },
   },
-  // Hedera uses Sourcify (chainId 295/296 supported by Sourcify, not Etherscan).
+  // Hedera verification: `yarn hedera:verify` (scripts/hedera/verify.ts) talks directly to the
+  // Sourcify API v2 — hardhat-verify's Hedera path is dead since Sourcify removed API v1.
   // Sepolia uses Etherscan — requires customChains so hardhat-verify maps the
   // custom network name "ethereumSepolia" to the correct Etherscan API endpoint.
-  sourcify: {
-    enabled: true,
-  },
   etherscan: {
     apiKey: etherscanApiKey,
     customChains: [
@@ -83,19 +81,6 @@ const config: HardhatUserConfig = {
 task("deploy").setAction(async (args, hre, runSuper) => {
   await runSuper(args);
   await generateTsAbis(hre);
-});
-
-// Extend the verify task to show HashScan link after Sourcify verification.
-task("verify").setAction(async (args, hre, runSuper) => {
-  await runSuper(args);
-
-  const address = args.address;
-  const chainId = hre.network.config.chainId;
-
-  if (address && (chainId === 295 || chainId === 296)) {
-    const network = chainId === 295 ? "mainnet" : "testnet";
-    console.log(`\nHashScan: https://hashscan.io/${network}/contract/${address}`);
-  }
 });
 
 export default config;
