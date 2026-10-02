@@ -64,6 +64,11 @@
     "precommit": "lint-staged",
     "lint-staged": "lint-staged"
   },
+  "lint-staged": {
+    "packages/nextjs/**/*.{ts,tsx}": "yarn next:lint --file",
+    "packages/hardhat/**/*.ts": "yarn hardhat:lint-staged",
+    "packages/foundry/**/*.sol": "yarn foundry:lint-staged"
+  },
   "packageManager": "yarn@3.2.3",
   "devDependencies": {
     "husky": "^9.1.6",
