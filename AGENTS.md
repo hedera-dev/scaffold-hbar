@@ -6,6 +6,10 @@ Briefing for coding agents in this app (Cursor, Claude Code, Codex). Claude Code
 
 Use `yarn` unless this project was created with another package manager.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Solidity package
 
 **Hardhat only** (`packages/hardhat`):
