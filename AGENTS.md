@@ -2,6 +2,10 @@
 
 Guidance for coding agents working in the **cross-chain-dca** Scaffold-HBAR template.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Overview
 
 Hedera schedules recurring DCA executions via **HSS**, sends each cycle over **Axelar GMP** to Sepolia, where a **Uniswap v3** swap runs (demo: USDC → WETH). Proceeds stay in `DcaExecutor` (owner withdraw only).
