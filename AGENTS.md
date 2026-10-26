@@ -228,6 +228,8 @@ Make comments that add information. Avoid redundant JSDoc for simple functions.
 
 ## Documentation
 
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 Use **Context7 MCP** tools to fetch up-to-date documentation for any library (Wagmi, Viem, RainbowKit, DaisyUI, Hardhat, Next.js, etc.). Context7 is configured as an MCP server and provides access to indexed documentation with code examples.
 
 ## Specialized Agents
