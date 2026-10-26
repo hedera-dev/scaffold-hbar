@@ -6,6 +6,10 @@ This is a Scaffold-HBAR dApp: Next.js App Router, wallet connect, Debug Contract
 
 Use the package manager this project was created with (`packageManager` in the root `package.json`, or the lockfile). Examples use `yarn`; if the app was created with npm, swap `yarn <script>` for `npm run <script>`.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Which Solidity package
 
 - `packages/hardhat` exists → Hardhat (`hardhat-deploy`)
