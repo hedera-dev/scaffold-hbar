@@ -2,6 +2,10 @@
 
 Guidance for coding agents working in the **bridge** Scaffold-HBAR template.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Overview
 
 Testnet-first **Sepolia ↔ Hedera Testnet** bridge learning kit. Pick one provider path (LayerZero OFT+HTS, Axelar ITS, or CCIP CCT), deploy via Foundry make runbooks, sync addresses into Next.js, exercise the UI. **Unaudited / educational — not for mainnet funds.**

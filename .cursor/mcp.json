@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "hedera-docs": {
+      "url": "https://docs.hedera.com/mcp"
+    }
+  }
+}
