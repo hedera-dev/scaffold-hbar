@@ -6,6 +6,10 @@ This is a **Hedera-native Next.js demo** (Proof Wall). There is **no Solidity wo
 
 Use the package manager this project was created with (`packageManager` in the root `package.json`). Examples use `yarn`.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Commands
 
 ```bash
