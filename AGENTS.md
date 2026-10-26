@@ -2,6 +2,10 @@
 
 Guidance for coding agents working in the **x402 pay-per-use** Scaffold-HBAR template.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Overview
 
 Sellers upload files to private **MinIO** storage and register access terms on-chain with `FileRegistry`. Buyers pay native **HBAR** (tinybars) via HashPack; a self-hosted **x402 Hedera facilitator** verifies and settles each payment on testnet before the resource server issues a short-lived presigned download URL.
