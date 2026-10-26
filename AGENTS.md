@@ -2,6 +2,10 @@
 
 Guidance for coding agents working in the **oracles** Scaffold-HBAR template.
 
+## Documentation
+
+Search Hedera documentation with the `SearchHedera` tool on the `hedera-docs` MCP server before writing Hedera-specific code.
+
 ## Overview
 
 Multi-provider price oracle dApp on Hedera: Chainlink, Supra, and Pyth adapters normalize feeds into one `IPriceOracle` interface; an `OracleConsumer` demo converts amounts with `priceE18`. Next.js dashboard reads deployed adapters/consumer.
