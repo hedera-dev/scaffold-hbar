@@ -33,7 +33,7 @@ npm create scaffold-hbar@latest -- --template cross-chain-dca
 
 ## Prerequisites
 
-- Node.js ≥ 20.18.3, Git
+- Node.js ≥ 22.23.4 and < 23, Git
 - **Hedera testnet account** — [portal.hedera.com](https://portal.hedera.com) + faucet
 - **Sepolia RPC URL** — e.g. [Alchemy](https://dashboard.alchemy.com) (`https://eth-sepolia.g.alchemy.com/v2/<KEY>`)
 - **Sepolia ETH** — [sepolia-faucet.pk910.de](https://sepolia-faucet.pk910.de/) or [Alchemy Sepolia faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
