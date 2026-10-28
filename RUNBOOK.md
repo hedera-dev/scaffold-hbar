@@ -10,7 +10,7 @@ iteration lands. Run commands from the repository root unless stated otherwise.
 
 | Tool | Version | Needed for |
 | --- | --- | --- |
-| Node.js | ≥ 22.23.4 and < 23 — see [README § Node.js version](README.md#nodejs-version) | Hardhat, Next.js, facilitator, scripts |
+| Node.js | ≥ 22.23.4 and < 23 (`.nvmrc`) — see [README § Node.js version](README.md#nodejs-version) | Hardhat, Next.js, facilitator, scripts |
 | Yarn | 3.2.3 (via corepack) | monorepo scripts |
 | Docker + Docker Compose | recent | Iteration 2 (MinIO + facilitator) |
 | A funded **ECDSA** Hedera testnet account | — | deploying contracts + running the facilitator |

@@ -26,7 +26,9 @@ Sellers upload files to private **MinIO** storage and register them on-chain wit
 
 ## Node.js version
 
-Use Node **≥ 22.23.4 and < 23** for `yarn install`, Hardhat, the Next.js app, and the facilitator image. Node 20 has no vendor fix for the 2026-10-21 runtime advisories. Hardhat 2.22.19 only claims the 22.x line, so stay below 23.
+Use Node **≥ 22.23.4 and < 23** for `yarn install`, Hardhat, the Next.js app, and the facilitator image. `.nvmrc` pins 22.23.4, so `nvm use` (or `fnm use`) picks it up, and CI reads the same file.
+
+Node 20 is end-of-life and has no vendor fix for the 2026-10-21 runtime advisories. The 22.x line is what this template is pinned to and tested on; Node 24.22.1+ and 26.12.1+ carry the same fixes if you prefer a newer line.
 
 The facilitator image is `node:22.23.4-alpine`.
 
