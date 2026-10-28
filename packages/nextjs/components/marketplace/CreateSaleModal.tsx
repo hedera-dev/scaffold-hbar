@@ -42,10 +42,9 @@ interface CreateSaleModalProps {
   isOpen: boolean;
   onClose: () => void;
   serialNumber: bigint;
-  collectionAddress: string | undefined;
 }
 
-export const CreateSaleModal = ({ isOpen, onClose, serialNumber, collectionAddress }: CreateSaleModalProps) => {
+export const CreateSaleModal = ({ isOpen, onClose, serialNumber }: CreateSaleModalProps) => {
   const router = useRouter();
   const { address: connectedAddress } = useAccount();
   const [listingType, setListingType] = useState<"fixed" | "auction">("fixed");
