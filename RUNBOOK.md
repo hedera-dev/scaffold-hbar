@@ -10,7 +10,7 @@ iteration lands. Run commands from the repository root unless stated otherwise.
 
 | Tool | Version | Needed for |
 | --- | --- | --- |
-| Node.js | ≥ 20.18.3 (default); optional 22 for Next.js — see [README § Node.js version](README.md#nodejs-version) | Hardhat, Next.js, scripts |
+| Node.js | ≥ 22.23.4 and < 23 — see [README § Node.js version](README.md#nodejs-version) | Hardhat, Next.js, facilitator, scripts |
 | Yarn | 3.2.3 (via corepack) | monorepo scripts |
 | Docker + Docker Compose | recent | Iteration 2 (MinIO + facilitator) |
 | A funded **ECDSA** Hedera testnet account | — | deploying contracts + running the facilitator |
@@ -336,9 +336,8 @@ hosted facilitator instead (e.g. Blocky402 testnet), set `FACILITATOR_URL` in
 - **Marketplace listing** — `/files` reads `getFileCount` + `getFiles`, not `eth_getLogs`.
   Hedera JSON-RPC limits log queries to a **7-day** window (timestamp-based “blocks”).
 - **Docker required** — `yarn infra:up` starts MinIO and the facilitator containers.
-- **Node.js** — Node 20 LTS by default; optional Node 22 for `yarn next:dev` / `yarn next:build` only
-  (see [README § Node.js version](README.md#nodejs-version)). A harmless `NodeVersionSupportWarning`
-  from `@aws-sdk/client-s3` on Node 20 can be ignored.
+- **Node.js** — ≥ 22.23.4 and < 23 for Hardhat, Next.js, and the facilitator image
+  (`node:22.23.4-alpine`). See [README § Node.js version](README.md#nodejs-version).
 - **Pin `@x402/hedera`** — the package is young; expect API churn across releases.
 - **No on-chain privacy** — transfer amounts, accounts, and settlement txs are public on Hedera.
 
