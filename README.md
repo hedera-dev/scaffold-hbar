@@ -20,7 +20,7 @@ To pass flags through `npm create`, put `--` before them: `npm create scaffold-h
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) ≥ 20.18.3
+- [Node.js](https://nodejs.org/) ≥ 22.23.4 and < 23 (see `.nvmrc`)
 - [Git](https://git-scm.com/) with `user.name` and `user.email` configured
 - [Yarn](https://yarnpkg.com/) (default; required if you clone this repo) or npm if you scaffolded with the CLI. For Yarn, install via Corepack:
   ```bash
