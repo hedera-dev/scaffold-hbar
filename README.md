@@ -53,7 +53,7 @@ The NFT stays with the owner throughout. Booking creates an on-chain **access-ri
 
 ## Prerequisites
 
-- Node.js ≥ 20.18.3, Git
+- Node.js ≥ 22.23.4 and < 23, Git
 - Yarn (default; required if you clone this repo) or npm if you scaffolded with the CLI
 - Hedera-compatible wallet — [MetaMask](https://metamask.io/) or [HashPack](https://www.hashpack.app/)
 - [WalletConnect project ID](https://cloud.reown.com) in `packages/nextjs/.env`
