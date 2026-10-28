@@ -27,7 +27,7 @@ Tutorial path: clone → deploy **one** provider → sync frontend config → te
 
 ### 1. Prerequisites
 
-- Node.js ≥ 22.23.4 and < 23, Git
+- Node.js ≥ 22.23.4 and < 23 (see `.nvmrc`), Git
 - Yarn (default; required if you clone this repo) or npm if you scaffolded with the CLI
 - Foundry (`forge`, `cast`, `anvil`)
 
