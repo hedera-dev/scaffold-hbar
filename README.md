@@ -28,7 +28,7 @@ This branch uses Yarn workspaces, so clone-and-run needs Yarn. Apps created with
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) ≥ 22.23.4 and < 23
+- [Node.js](https://nodejs.org/) ≥ 22.23.4 and < 23 (see `.nvmrc`)
 - [Git](https://git-scm.com/) with `user.name` and `user.email` configured
 - [Yarn](https://yarnpkg.com/) (default; required if you clone this repo) or npm if you scaffolded with the CLI. For Yarn, install via Corepack:
   ```bash
