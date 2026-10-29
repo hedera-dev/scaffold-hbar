@@ -31,7 +31,7 @@ npm create scaffold-hbar@latest -- --template oracles
 
 ## Prerequisites
 
-- Node.js ≥ 20.18.3, Git
+- Node.js ≥ 22.23.4 and < 23 (see `.nvmrc`), Git
 - Yarn (default; required if you clone this repo) or npm if you scaffolded with the CLI
 - [Foundry](https://book.getfoundry.sh/getting-started/installation) (`forge`, `cast`)
 - A Hedera-created, funded account for testnet/mainnet deploys
