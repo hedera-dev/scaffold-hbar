@@ -4,17 +4,11 @@ import { useState } from "react";
 import { SubscriptionsList } from "./_components/SubscriptionsList";
 import { TicketIcon } from "@heroicons/react/24/outline";
 import { CreateAvailabilityModal, CreateSaleModal } from "~~/components/marketplace";
-import { useScaffoldReadContract } from "~~/hooks/scaffold-hbar";
 
 export default function MySubscriptionsPage() {
   const [selectedSerialNumber, setSelectedSerialNumber] = useState<bigint | null>(null);
   const [isRentalModalOpen, setIsRentalModalOpen] = useState(false);
   const [isSaleModalOpen, setIsSaleModalOpen] = useState(false);
-
-  const { data: collectionAddress } = useScaffoldReadContract({
-    contractName: "SubscriptionNFT",
-    functionName: "collectionAddress",
-  });
 
   const handleCreateListing = (serialNumber: bigint) => {
     setSelectedSerialNumber(serialNumber);
@@ -64,7 +58,6 @@ export default function MySubscriptionsPage() {
             isOpen={isSaleModalOpen}
             onClose={handleCloseSaleModal}
             serialNumber={selectedSerialNumber}
-            collectionAddress={collectionAddress}
           />
         </>
       )}

@@ -4,14 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useAccount } from "wagmi";
-import {
-  ArrowLeftIcon,
-  ClockIcon,
-  CurrencyDollarIcon,
-  TagIcon,
-  TicketIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, ClockIcon, TagIcon, TicketIcon, UserIcon } from "@heroicons/react/24/outline";
 import { AddressDisplay, DateRangeDisplay, HbarAmount } from "~~/components/marketplace";
 import { useScaffoldEventHistory, useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-hbar";
 import {
@@ -68,7 +61,7 @@ export default function SalesListingDetailPage() {
     contractName: "SubscriptionSalesMarketplace",
     functionName: "getMinimumBid",
     args: [listingId],
-    query: { enabled: listingData ? Number(listingData.listingType) === 1 : false },
+    query: { enabled: listingData ? Number(listingData.listingType) === ListingType.Auction : false },
   });
 
   const serialNumber = listingData?.serialNumber;
@@ -113,7 +106,7 @@ export default function SalesListingDetailPage() {
       .sort((a, b) => Number(b.amount - a.amount));
   }, [bidEvents, listingId, listingData]);
 
-  const isAuction = listingData ? Number(listingData.listingType) === 1 : false;
+  const isAuction = listingData ? Number(listingData.listingType) === ListingType.Auction : false;
   const isActive = listingData && Number(listingData.status) === ListingStatus.Active;
   const isSeller = listingData?.seller?.toLowerCase() === connectedAddress?.toLowerCase();
   const hasNoBids = listingData?.highestBidder === ZERO_ADDRESS;
