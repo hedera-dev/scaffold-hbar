@@ -18,7 +18,7 @@ Sellers upload files to private **MinIO** storage and register them on-chain wit
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) — see [Node.js version](#nodejs-version) below (default: **20 LTS** ≥ 20.18.3)
+- [Node.js](https://nodejs.org/) ≥ 22.23.4 and < 23 — see [Node.js version](#nodejs-version)
 - Yarn (default; required if you clone this repo) or npm if you scaffolded with the CLI. For Yarn, install via Corepack: `corepack enable && corepack prepare yarn@stable --activate`
 - [Git](https://git-scm.com/)
 - [Docker](https://docs.docker.com/get-docker/) + Docker Compose (MinIO and self-hosted facilitator)
@@ -26,26 +26,11 @@ Sellers upload files to private **MinIO** storage and register them on-chain wit
 
 ## Node.js version
 
-**Use Node 20 LTS (≥ 20.18.3) by default** for everything in this repo: `yarn install`, Hardhat (compile, test, deploy, verify), Docker infra, and the Next.js app. That matches what this template is tested against.
+Use Node **≥ 22.23.4 and < 23** for `yarn install`, Hardhat, the Next.js app, and the facilitator image. `.nvmrc` pins 22.23.4, so `nvm use` (or `fnm use`) picks it up, and CI reads the same file.
 
-**AWS SDK console notice:** When Next.js compiles the MinIO upload/download routes, you may see a `NodeVersionSupportWarning` on Node 20. The app still works — it is informational. Current `@aws-sdk/client-s3` releases run on Node 20; **future** SDK versions (from early 2027 onward) are expected to require Node 22+. You can ignore the warning for now.
+Node 20 is end-of-life and has no vendor fix for the 2026-10-21 runtime advisories. The 22.x line is what this template is pinned to and tested on; Node 24.22.1+ and 26.12.1+ carry the same fixes if you prefer a newer line.
 
-### Optional: Node 22 for the Next.js app only
-
-If you want cleaner dev logs or to stay ahead of AWS SDK’s Node 22 direction, run **Hardhat on Node 20** and **Next.js on Node 22**. Install both with [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm):
-
-1. Run `yarn install` once at the repo root (Node 20 or 22 is fine for install).
-2. **Node 20** — contract work: `yarn hardhat:test`, `yarn hardhat:deploy`, `yarn hardhat:verify:*`.
-3. **Node 22** — resource server: `yarn next:dev`, `yarn next:build`.
-
-Example with fnm:
-
-```bash
-fnm use 20 && yarn hardhat:test
-fnm use 22 && yarn next:dev
-```
-
-Hardhat is documented for Node 20; run deploy/tests on Node 22 yourself before switching the whole monorepo to a single version.
+The facilitator image is `node:22.23.4-alpine`.
 
 ## Quick start
 
@@ -152,7 +137,7 @@ Verified contracts appear on [Hashscan (testnet)](https://hashscan.io/testnet).
 - **HBAR balance** — buyers need testnet HBAR for each private download; the facilitator account needs HBAR to sponsor network fees.
 - **Testnet settlement** — MinIO and the facilitator run locally, but payments settle on Hedera **testnet** (or mainnet if you change `X402_NETWORK`). The local Hedera fork is not used for x402.
 - **Hedera JSON-RPC log limits** — `eth_getLogs` is capped to a 7-day range on Hedera; the marketplace lists files via `getFiles` instead of event scanning.
-- **Node.js** — default **20 LTS** (≥ 20.18.3); optional **22** for Next.js only to avoid AWS SDK warnings — see [Node.js version](#nodejs-version).
+- **Node.js** — ≥ 22.23.4 and < 23, including the facilitator image. See [Node.js version](#nodejs-version).
 - **Docker** — required for `yarn infra:up`.
 - **No on-chain privacy** — payment amounts and accounts are visible on HashScan.
 - **Package churn** — pin `@x402/hedera` / `@x402/core` versions; APIs may change between releases.
