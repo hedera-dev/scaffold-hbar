@@ -28,7 +28,7 @@ This template deploys to **live testnets only** — not a local Hardhat chain.
 Create a project:
 
 ```bash
-npm create scaffold-hbar@latest -- --template cross-chain-dca
+npx scaffold-hbar@latest --template cross-chain-dca
 ```
 
 ## Prerequisites
@@ -230,7 +230,7 @@ packages/nextjs/
 
 - [packages/hardhat/README.md](packages/hardhat/README.md) — contracts, scripts, env vars
 - [Scaffold HBAR docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
 - [Hedera Documentation](https://docs.hedera.com/)
 - [Axelar Documentation](https://docs.axelar.dev/)
 - [Hashscan testnet](https://hashscan.io/testnet)
