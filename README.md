@@ -26,7 +26,7 @@ This template—including **contracts, frontend, and tooling**—is **experiment
 Create a project:
 
 ```bash
-npm create scaffold-hbar@latest -- --template oracles
+npx scaffold-hbar@latest --template oracles
 ```
 
 ## Prerequisites
@@ -189,7 +189,7 @@ Network and RPC configuration: `packages/foundry/foundry.toml`.
 
 - [Scaffold HBAR docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index)
 - [Hedera Documentation](https://docs.hedera.com/)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
 - [Foundry Book](https://book.getfoundry.sh/)
 - [Hedera Portal faucet](https://portal.hedera.com/faucet)
 - [Hashscan](https://hashscan.io/testnet)
