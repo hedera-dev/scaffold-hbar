@@ -22,7 +22,7 @@ General Scaffold-HBAR docs: [Scaffold HBAR on Hedera](https://docs.hedera.com/so
 Create a project:
 
 ```bash
-npm create scaffold-hbar@latest -- --template hedera-demo
+npx scaffold-hbar@latest --template hedera-demo
 ```
 
 ## Quick start
@@ -66,6 +66,6 @@ yarn next:dev    # http://localhost:3000
 ## Links
 
 - [Scaffold HBAR docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
 - [Hedera docs](https://docs.hedera.com/)
 - [HashScan testnet](https://hashscan.io/testnet)
