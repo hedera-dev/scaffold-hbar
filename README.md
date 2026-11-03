@@ -5,7 +5,7 @@ Pay-per-download file marketplace on Hedera using [x402](https://x402.org/): pri
 CLI key: `x402-pay-per-use` (branch `templates/x402-pay-per-use`).
 
 ```bash
-npx create-scaffold-hbar@latest --template x402-pay-per-use
+npx scaffold-hbar@latest --template x402-pay-per-use
 ```
 
 General Scaffold-HBAR setup: [Scaffold HBAR on Hedera](https://docs.hedera.com/solutions/tools/scaffold-hbar/index). Step-by-step verification: [`RUNBOOK.md`](RUNBOOK.md).
@@ -156,4 +156,4 @@ Verified contracts appear on [Hashscan (testnet)](https://hashscan.io/testnet).
 - [Hedera Documentation](https://docs.hedera.com/)
 - [Hashscan](https://hashscan.io/) — block explorer
 - [Hedera Portal faucet](https://portal.hedera.com/faucet)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
