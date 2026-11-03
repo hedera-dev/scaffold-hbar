@@ -343,7 +343,7 @@ hosted facilitator instead (e.g. Blocky402 testnet), set `FACILITATOR_URL` in
 
 ---
 
-## Iteration 5 — Packaging (`create-scaffold-hbar`)
+## Iteration 5 — Packaging (`scaffold-hbar`)
 
 This template is published as git branch **`templates/x402-pay-per-use`** on the scaffold-hbar
 repo. The CLI downloads that branch via giget — there is no embedded copy in the CLI repo.
@@ -371,26 +371,29 @@ git push origin HEAD:templates/x402-pay-per-use
 ```
 
 Or merge into `templates/x402-pay-per-use` and push. The branch name must be exactly
-`templates/x402-pay-per-use` so `npx create-scaffold-hbar@latest --template x402-pay-per-use`
+`templates/x402-pay-per-use` so `npx scaffold-hbar@latest --template x402-pay-per-use`
 resolves to `hedera-dev/scaffold-hbar#templates/x402-pay-per-use`.
 
 ### 5.3 Scaffold a fresh project
 
 ```bash
-npx create-scaffold-hbar@latest --template x402-pay-per-use
+npx scaffold-hbar@latest --template x402-pay-per-use
 ```
 
 Interactive mode lists the template automatically once the branch exists on GitHub (GitHub API
 `templates/*` refs). The CLI prints custom **outro steps** from `template.json` (env copy,
 `yarn infra:up`, Hardhat deploy, `yarn next:dev`).
 
-### 5.4 Optional CLI polish (`create-scaffold-hbar` repo)
+### 5.4 CLI template registry
 
-Not required for discovery. For a friendlier prompt label and offline fallback, add to
-`src/utils/consts.ts` in the `create-hbar` package:
+Already done for this template: `TEMPLATE_REGISTRY` in `src/utils/template-registry.ts`
+(scaffold-hbar repo) carries the `x402-pay-per-use` entry, so the prompt label, hint and
+`solidityFramework: ["hardhat"]` constraint work offline, without a GitHub API call.
 
-- `TEMPLATE_LABEL_OVERRIDES["x402-pay-per-use"] = "x402 Pay-Per-Use"`
-- `TEMPLATE_CAPABILITIES_FALLBACK["x402-pay-per-use"]` with `solidityFramework: ["hardhat"]`
+A **new** template needs an entry added there and a CLI release that includes it. Nothing
+is hand-maintained besides the registry — the label and capability maps are derived from
+it. Until the entry ships, a live GitHub fetch still surfaces the branch in the menu, but
+with permissive capability defaults.
 
 ### 5.5 Post-scaffold smoke test
 
