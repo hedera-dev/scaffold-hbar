@@ -18,7 +18,7 @@ General Scaffold-HBAR docs: [Scaffold HBAR on Hedera](https://docs.hedera.com/so
 Create a project:
 
 ```bash
-npm create scaffold-hbar@latest -- --template bridge
+npx scaffold-hbar@latest --template bridge
 ```
 
 ## Start here
@@ -140,7 +140,7 @@ packages/nextjs/
 - [Foundry package guide](packages/foundry/README.md)
 - [Next.js frontend guide](packages/nextjs/README.md)
 - [Scaffold HBAR docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
 - [Hedera Documentation](https://docs.hedera.com/)
 - [Hedera Token Service](https://docs.hedera.com/hedera/core-concepts/hedera-token-service-hts)
 - [Hedera Portal faucet](https://portal.hedera.com/faucet)
