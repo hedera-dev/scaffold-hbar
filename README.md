@@ -12,7 +12,7 @@ npx scaffold-hbar@latest
 
 The CLI fetches starter templates from this repo's `templates/*` branches.
 
-`npm create scaffold-hbar@latest` runs the same CLI through the [`create-scaffold-hbar`](https://www.npmjs.com/package/create-scaffold-hbar) alias, which stays published because `npm create <x>` resolves to `create-<x>`. Prefer `npx`: with `npm create` you must put `--` before any flags — `npm create scaffold-hbar@latest my-app -- --template org/repo` — or npm treats `--template` as its own config and the CLI scaffolds its default template.
+`npm create scaffold-hbar@latest` runs the same CLI through the [`create-scaffold-hbar`](https://www.npmjs.com/package/create-scaffold-hbar) alias, which stays published because `npm create <x>` resolves to `create-<x>`. Prefer `npx`: with `npm create` you must put `--` before any flags — `npm create scaffold-hbar@latest my-app -- --template org/repo` — or npm swallows them as its own config, leaving `org/repo` behind as a stray argument, and the CLI runs as if you had passed nothing.
 
 ## Work from this repository
 
