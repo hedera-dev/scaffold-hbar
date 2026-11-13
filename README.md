@@ -20,7 +20,7 @@ Create a project from this template:
 npx scaffold-hbar@latest --template blank
 ```
 
-The CLI also asks for frontend, Solidity framework, network, and package manager.
+The CLI also asks for Solidity framework, network, and package manager — frontend is Next.js, this template's only option.
 
 ## Work from this repository
 
