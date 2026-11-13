@@ -22,7 +22,7 @@ This template—including **contracts, frontend, and tooling**—is **experiment
 Create a project:
 
 ```bash
-npm create scaffold-hbar@latest -- --template payments-scheduler
+npx scaffold-hbar@latest --template payments-scheduler
 ```
 
 ## Prerequisites
@@ -171,7 +171,7 @@ packages/nextjs/
 
 - [Scaffold HBAR docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index)
 - [Hedera Schedule Service](https://docs.hedera.com/hedera/core-concepts/smart-contracts/system-smart-contracts/hedera-schedule-service)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
 - [Foundry Book](https://book.getfoundry.sh/)
 - [Hedera Portal faucet](https://portal.hedera.com/faucet)
 - [Hashscan testnet](https://hashscan.io/testnet)
