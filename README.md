@@ -4,6 +4,10 @@ Hedera HTS subscription marketplace: tokenize subscriptions (gym, WiFi, streamin
 
 CLI key: `tokenize-subscriptions` (branch `templates/tokenize-subscriptions`).
 
+```bash
+npx scaffold-hbar@latest --template tokenize-subscriptions
+```
+
 General Scaffold-HBAR setup: [Scaffold HBAR on Hedera](https://docs.hedera.com/solutions/tools/scaffold-hbar/index). Deep contract behavior: [packages/hardhat/docs/contract-behavior.md](packages/hardhat/docs/contract-behavior.md).
 
 ## Disclaimer
