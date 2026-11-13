@@ -7,12 +7,14 @@ The full product guide — templates, CLI flags, npm vs Yarn, deploy, and verify
 ## Create a project
 
 ```bash
-npm create scaffold-hbar@latest
+npx scaffold-hbar@latest
 ```
 
-`npx create-scaffold-hbar@latest` is equivalent. The CLI fetches starter templates from this repo's `templates/*` branches.
+The CLI fetches starter templates from this repo's `templates/*` branches.
 
-To pass flags through `npm create`, put `--` before them: `npm create scaffold-hbar@latest my-app -- --template org/repo`. Without it, npm treats `--template` as its own setting and the CLI scaffolds its default template; npm 11 at least warns `Unknown cli config "--template"`. `npx create-scaffold-hbar@latest my-app --template org/repo` needs no `--`.
+`npm create scaffold-hbar@latest` runs the same CLI. Prefer `npx`: with `npm create` you must put `--` before any flags — `npm create scaffold-hbar@latest my-app -- --template org/repo` — or npm swallows them as its own config, leaving `org/repo` behind as a stray argument, and the CLI runs as if you had passed nothing.
+
+> Installing `create-scaffold-hbar` directly is the old route and will be deprecated — use `scaffold-hbar`.
 
 ## Work from this repository
 
@@ -58,7 +60,7 @@ Network and RPC URLs are in `packages/hardhat/hardhat.config.ts` and `packages/f
 ## Links
 
 - [Scaffold HBAR docs](https://docs.hedera.com/solutions/tools/scaffold-hbar/index)
-- [create-scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
+- [scaffold-hbar](https://github.com/hedera-dev/create-scaffold-hbar) — CLI
 - [Hedera Portal faucet](https://portal.hedera.com/faucet)
 - [HashScan](https://hashscan.io/)
 
